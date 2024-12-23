@@ -1,0 +1,58 @@
+services:
+  writedb:
+    image: postgres:latest
+    container_name: writedb
+    restart: always
+    ports:
+      - ${WRITEDB_PORT}:5432
+    environment:
+      POSTGRES_USER: ${WRITEDB_USER}
+      POSTGRES_PASSWORD: ${WRTIEDB_PASSWORD}
+      POSTGRES_DB: ${WRITEDB_DATABASE}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${WRITEDB_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+    volumes:
+      - writedb_data:/var/lib/postgresql/data
+
+  readdb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "${READDB_PORT}:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${READDB_USER}
+      - MONGO_INITDB_ROOT_PASSWORD=${READDB_PASSWORD}
+      - MONGO_INITDB_DATABASE=${READDB_DATABASE}
+    volumes:
+      - readdb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      retries: 3
+      start_period: 10s
+      timeout: 10s
+
+  axon:
+    image: axoniq/axonserver:latest
+    container_name: axon
+    ports:
+      - ${AXON_DASHBOARD_PORT}:8024
+      - ${AXON_SERV_PORT}:8124
+    volumes:
+      - axon_data:/data
+      - axon_events:/eventdata
+      - axon_config:/config
+    environment:
+      - AXONIQ_AXONSERVER_NAME=${AXON_NAME}
+      - AXONIQ_AXONSERVER_HOSTNAME=${AXON_HOSTNAME}
+    
+volumes:
+  writedb_data:
+  readdb_data:
+  axon_data:
+  axon_events:
+  axon_config:
