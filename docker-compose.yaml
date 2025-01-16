@@ -70,6 +70,22 @@ services:
       retries: 3
       start_period: 30s
 
+  wsredis:
+    image: redis:7.4.1
+    container_name: wsredis
+    ports:
+      - "${WSREDIS_PORT}:6379"
+    volumes:
+      - ./wsRedis.conf:/usr/local/etc/redis/wsRedis.conf:ro # 호스트의 wsRedis.conf를 컨테이너로 마운트
+      - wsredis_data:/data  # Redis AOF 데이터 저장
+    command: [ "redis-server", "/usr/local/etc/redis/wsRedis.conf" ]  # Redis 설정 파일을 사용하여 실행
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+
   elasticsearch:
     image: elasticsearch:8.17.0
     environment:
@@ -131,6 +147,7 @@ volumes:
   readdb_data:
   rabbitmq_data:
   redis_data:
+  wsredis_data:
   es_data:
   prom_data:
   graf_data:
