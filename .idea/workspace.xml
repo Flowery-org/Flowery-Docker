@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="afe5e04e-652f-45ae-9cbb-7b68d1f91c4e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/redis/appendonlydir/appendonly.aof.1.base.rdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis/appendonlydir/appendonly.aof.1.incr.aof" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis/appendonlydir/appendonly.aof.manifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/redis/dump.rdb" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/wsRedis.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +44,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/wsRedis&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;feature/newRedis&quot;,
     &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/taejae/Desktop/flowery/Flowery-docker&quot;,
@@ -57,6 +56,19 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Flowery-docker" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Flowery-docker" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -74,7 +86,11 @@
       <option name="presentableId" value="Default" />
       <updated>1736961308519</updated>
       <workItem from="1736961309601" duration="9093000" />
-      <workItem from="1737034712557" duration="784000" />
+      <workItem from="1737034712557" duration="1533000" />
+      <workItem from="1737036261141" duration="147000" />
+      <workItem from="1737036410151" duration="51000" />
+      <workItem from="1737036463219" duration="58000" />
+      <workItem from="1737036522885" duration="34000" />
     </task>
     <servers />
   </component>
