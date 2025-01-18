@@ -72,7 +72,7 @@ services:
     image: redis:7.4.1
     container_name: wsredis
     ports:
-      - "${WSREDIS_PORT}:6379"
+      - "${WS_REDIS_PORT}:6379"
     volumes:
       - ./wsRedis.conf:/usr/local/etc/redis/wsRedis.conf:ro # 호스트의 wsRedis.conf를 컨테이너로 마운트
       - wsredis_data:/data  # Redis AOF 데이터 저장
