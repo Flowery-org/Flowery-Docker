@@ -141,6 +141,15 @@ services:
     networks:
       - monitoring-network
 
+  neo4j:
+    image: neo4j:5.26.0
+    ports:
+      - "${NEO_CONSOLE_PORT}:7474"
+      - "${NEO_DB_PORT}:7687"
+    volumes:
+      - neo_data:/data
+    environment:
+      NEO4J_AUTH: "${NEO_USER}/${NEO_PASSWORD}"
     
 volumes:
   writedb_data:
@@ -151,6 +160,7 @@ volumes:
   es_data:
   prom_data:
   graf_data:
+  neo_data:
 
 networks:
   monitoring-network:
