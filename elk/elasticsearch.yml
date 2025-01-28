@@ -1,0 +1,7 @@
+elasticsearch.password: espassword # Local Test Setting
+http.port: 9200
+xpack.security:
+  enabled: false
+  transport:
+    ssl:
+      enabled: false

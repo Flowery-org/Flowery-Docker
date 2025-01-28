@@ -1,0 +1,10 @@
+filebeat.inputs:
+- type: tcp
+  max_message_size: 10MiB
+  host: "${FILEBEAT_TCP_HOST:localhost:8001}"
+
+output.logstash:
+  hosts: ["${LOGSTASH_HOST:logstash:5044}"]
+
+setup.kibana:
+  host: "${KIBANA_HOST:kibana:5601}"
